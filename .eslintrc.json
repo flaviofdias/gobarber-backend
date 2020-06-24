@@ -20,10 +20,10 @@
   ],
   "rules": {
     "camelcase": "off",
-    "@typescript-eslint/camelcase": ["warn"],
+    // "@typescript-eslint/camelcase": "off",
     "prettier/prettier": "error",
     "class-methods-use-this": "off",
-     "import/extensions": [
+    "import/extensions": [
       "error",
       "ignorePackages",
       {
