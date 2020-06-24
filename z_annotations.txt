@@ -1,0 +1,13 @@
+MIGRATIONS
+
+  CRIAÇÃO DE MIGRATION
+    yarn typeorm migration:create -n CreateAppointments
+
+  EXECUÇÃO
+    yarn typeorm migration:run
+
+  UNDO
+    yarn typeorm migration:revert - Desfaz migration
+
+  VISUALIZAÇÃO
+    yarn typeorm migration:show - Visualiza migrations
