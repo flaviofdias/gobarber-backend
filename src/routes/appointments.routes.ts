@@ -5,7 +5,12 @@ import { parseISO } from 'date-fns';
 import AppointmentsRepository from '../respositories/AppointmentsRepository';
 import CreateAppointmentService from '../services/CreateAppointmentService';
 
+import ensureAuthenticated from '../middlewares/ensureAuthenticated';
+
 const appointmentsRouter = Router();
+
+// Aplica autenticação JWT em todas as rotas
+appointmentsRouter.use(ensureAuthenticated);
 
 /*
  * ROTA -> Receber a requisição -> Chamar outro arquivo -> Devolver uma resposta
