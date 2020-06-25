@@ -1,2 +1,9 @@
-node_modules
+.vscode/
+node_modules/
+build/
+temp/
+
+tmp/*
+!tmp/.gitkeep
+
 z_token.txt
