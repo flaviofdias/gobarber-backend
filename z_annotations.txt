@@ -11,3 +11,7 @@ MIGRATIONS
 
   VISUALIZAÇÃO
     yarn typeorm migration:show - Visualiza migrations
+
+
+GERAR MD5
+    echo -n 'seutexto' | md5sum
