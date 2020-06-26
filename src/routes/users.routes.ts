@@ -3,11 +3,8 @@ import multer from 'multer';
 import uploadConfig from '../config/upload';
 
 import CreateUserService from '../services/CreateUserService';
-<<<<<<< HEAD
 import UpdateUserAvatarService from '../services/UpdateUserAvatarService';
 
-=======
->>>>>>> be3a5d6328466d0f97dc4acde40183ecac95475b
 import ensureAuthenticated from '../middlewares/ensureAuthenticated';
 
 const usersRouter = Router();
@@ -39,7 +36,6 @@ usersRouter.patch(
   ensureAuthenticated,
   upload.single('avatar'),
   async (request, response) => {
-<<<<<<< HEAD
     try {
       const updateUserAvatar = new UpdateUserAvatarService();
 
@@ -54,10 +50,6 @@ usersRouter.patch(
     } catch (err) {
       return response.status(400).json({ error: err.message });
     }
-=======
-    console.log(request.file);
-    return response.json({ ok: true });
->>>>>>> be3a5d6328466d0f97dc4acde40183ecac95475b
   },
 );
 
