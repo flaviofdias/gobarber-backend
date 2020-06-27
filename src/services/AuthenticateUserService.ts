@@ -3,6 +3,8 @@ import { compare } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
 import authConfig from '../config/auth';
 
+import AppError from '../errors/AppError';
+
 import User from '../models/User';
 
 interface Request {
@@ -22,7 +24,7 @@ class AuthenticateUserService {
     const user = await usersRepository.findOne({ where: { email } });
 
     if (!user) {
-      throw new Error('E-mail or password invalid');
+      throw new AppError('E-mail or password invalid', 401);
     }
 
     // user.password - Senha criptografada
@@ -32,7 +34,7 @@ class AuthenticateUserService {
     const passwordMatched = await compare(password, user.password);
 
     if (!passwordMatched) {
-      throw new Error('E-mail or password invalid');
+      throw new AppError('E-mail or password invalid', 401);
     }
 
     const { secret, expiresIn } = authConfig.jwt;
