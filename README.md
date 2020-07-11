@@ -58,10 +58,11 @@
 - O usuário não pode agendar em um horário que já passou;
 - O usuário não pode agendar serviços consigo mesmo;
 
-
+---
 # LEGENDA
-|-----|:-------------------------:|
-| RF  | Requisitos Funcionais     |
-| RNF | Requisitos Não Funcionais |
-| RN  | Regras de Negócio         |
 
+| Sigla |         Descrição         |
+|-------|---------------------------|
+|   RF  | Requisitos Funcionais     |
+|  RNF  | Requisitos Não Funcionais |
+|  RN   | Regras de Negócio         | 
