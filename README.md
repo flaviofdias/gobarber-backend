@@ -16,16 +16,20 @@
 - O usuário precisa confirmar a nova senha ao resetar a senha;
 
 
+---
 # Atualização de perfil
 **RF**
 - O usuário deve poder atualizar seu nome, e-mail e senha;
 
 **RNF**
+
 **RN**
 - O usuário não pode alterar seu e-mail para e-mail já utilizado;
 - Para atualizar sua senha, o usuário deve informar a senha antiga;
 - Para atualizar a senha, o usuário deve informar a senha antiga;
 
+
+---
 # Painel do prestador
 **RF**
 - O usuário deve pode listar seus agendamentos de um dia específico;
@@ -41,6 +45,7 @@
 - A notificação deve ter um status de lida ou não-lida para que o prestador possa controlar;
 
 
+---
 # Agendamento de serviços
 **RF**
 - O usuário deve poder listar todos prestadores de serviço cadastrados;
@@ -58,8 +63,8 @@
 - O usuário não pode agendar em um horário que já passou;
 - O usuário não pode agendar serviços consigo mesmo;
 
----
 
+---
 | Sigla |         Descrição         |
 |-------|---------------------------|
 |   RF  | Requisitos Funcionais     |
