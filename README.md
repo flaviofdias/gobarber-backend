@@ -59,7 +59,6 @@
 - O usuário não pode agendar serviços consigo mesmo;
 
 ---
-# LEGENDA
 
 | Sigla |         Descrição         |
 |-------|---------------------------|
