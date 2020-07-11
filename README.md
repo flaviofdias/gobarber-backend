@@ -60,7 +60,8 @@
 
 
 # LEGENDA
-| RF  |  Requisitos Funcionais    |
+|---------------------------------|
+| RF  | Requisitos Funcionais     |
 | RNF | Requisitos Não Funcionais |
 | RN  | Regras de Negócio         |
 
