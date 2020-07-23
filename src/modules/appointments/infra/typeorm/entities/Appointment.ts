@@ -14,7 +14,7 @@ import {
  * Muitos para Muitos - ManyToMany
  */
 
-import User from './User'; // Relacionamento USER / USER_PROVIDER
+import User from '@modules/users/infra/typeorm/entities/User'; // Relacionamento USER / USER_PROVIDER
 
 // Declaração nome tabela
 @Entity('appointments')
