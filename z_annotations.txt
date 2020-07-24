@@ -1,34 +1,36 @@
 # TESTES AUTOMATIZADOS
-Que a nossa aplicação continue funcionando independente do número de novas funcionalidades e do número de devs no time.
+  Que a nossa aplicação continue funcionando independente do número de novas funcionalidades e do número de devs no time.
 
-1. Testes Unitários (TDD)
+  1. Testes Unitários (TDD)
 
-  - Testam funcionalidades específicas da nossa aplicação (precisam ser funções puras)
-    + Não depende de recursos externos para funcionamento
-    + JAMAIS: Chamada à uma API e efeito colateral
+    - Testam funcionalidades específicas da nossa aplicação (precisam ser funções puras)
+      + Não depende de recursos externos para funcionamento
+      + JAMAIS: Chamada à uma API e efeito colateral
 
-2. Teste de integração
+  2. Teste de integração
 
-  - Testam uma funcionalidade completa, passando por várias camadas da aplicação.
+    - Testam uma funcionalidade completa, passando por várias camadas da aplicação.
 
-    Route  ->  Controller  ->  Service  ->  Repository  ->  ...
+      Route  ->  Controller  ->  Service  ->  Repository  ->  ...
 
-3. Testes E2E (EndToEnd)
+  3. Testes E2E (EndToEnd)
 
-  - Testes que simulam a ação do usuário dentro da nossa aplicação (Interface)
+    - Testes que simulam a ação do usuário dentro da nossa aplicação (Interface)
 
-    - Clique no input de email
-    - Preencha seuemail@blablabla.com.br
-    - Clique no input de senha
-    - Preenha 123456 (sua senha)
-    - Clique no botão "Logar"
-    - Espero que a página tenha enviado o usuário para o dashboard
+      - Clique no input de email
+      - Preencha seuemail@blablabla.com.br
+      - Clique no input de senha
+      - Preenha 123456 (sua senha)
+      - Clique no botão "Logar"
+      - Espero que a página tenha enviado o usuário para o dashboard
+
+# TDD (Test Driven Development)
+
+ - Quando ele se cadastrar na aplicação, ele deve receber email de boas-vindas.
 
 
 
-
-
-MIGRATIONS
+# MIGRATIONS
 
   CRIAÇÃO DE MIGRATION
     yarn typeorm migration:create -n CreateAppointments
