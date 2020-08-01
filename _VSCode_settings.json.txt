@@ -1,0 +1,115 @@
+{
+  /*
+     PLUGINS ADICIONADOS
+         Bracket Pair Colorizer - CoenraadS
+         Color Highlight - Sergii Naumov
+         DotENV - mikestead
+         Dracula Official - Dracula Theme
+         EditorConfig for VS Code - EditorConfig
+         Emoji - Perkovec
+         ESLint - Dirk Baeumer
+         Material Icon Theme - Phillip Kief
+         Omni - Rocketseat
+         Open in Browser - TechER
+         Prettier - Code Formatter - Prettier
+         vscode-styled-components - Julien Poissonnier
+  */
+
+     "window.zoomLevel": 0,
+
+     "explorer.compactFolders": false,
+     "explorer.confirmDelete": false,
+
+     "workbench.startupEditor": "newUntitledFile",
+     "workbench.colorTheme": "Omni",
+     "workbench.editor.labelFormat": "short",
+     "workbench.iconTheme": "material-icon-theme",
+
+     "open-in-browser.default": "google-chrome",
+
+     "editor.fontFamily": "Fira Code",
+     "editor.fontLigatures": true,
+     "editor.fontSize": 16,
+     "editor.fontWeight": "500",
+     "editor.lineHeight": 24,
+     "editor.rulers": [ 150, 200 ],
+     "editor.tabSize": 2,
+     "editor.renderLineHighlight": "gutter",
+     "editor.parameterHints.enabled": false,
+     "editor.codeActionsOnSave": {
+         "source.fixAll.eslint" : true
+     },
+     "explorer.confirmDragAndDrop": false,
+     "editor.semanticHighlighting.enabled": false,
+
+     "extensions.ignoreRecommendations": true,
+
+     "breadcrumbs.enabled": true,
+
+     "emmet.syntaxProfiles": {
+         "javascript": "jsx"
+     },
+     "emmet.includeLanguages": {
+         "javascript": "javascriptreact"
+     },
+
+     "[javascript]": {
+         "editor.codeActionsOnSave": {
+             "source.fixAll.eslint": true,
+         }
+     },
+     "[javascriptreact]": {
+         "editor.codeActionsOnSave": {
+             "source.fixAll.eslint": true,
+         }
+     },
+     "[typescript]": {
+         "editor.codeActionsOnSave": {
+             "source.fixAll.eslint": true,
+         }
+     },
+     "[typescriptreact]": {
+         "editor.codeActionsOnSave": {
+             "source.fixAll.eslint": true,
+         }
+     },
+
+     "files.associations": {
+         ".sequelizerc": "javascript",
+         ".stylelintrc": "json",
+         ".prettierrc": "json",
+     },
+
+     "prettier.eslintIntegration": true,
+
+     "javascript.updateImportsOnFileMove.enabled": "never",
+     "javascript.suggest.autoImports": false,
+
+     "typescript.updateImportsOnFileMove.enabled": "never",
+
+     "terminal.integrated.fontSize": 14,
+     "terminal.integrated.shell.linux": "/bin/zsh",
+     "git.enableSmartCommit": true,
+     "git.autofetch": true,
+     "files.autoSave": "off",
+
+     "material-icon-theme.folders.associations": {
+         "infra": "app",
+         "entities": "class",
+         "schemas": "class",
+         "typeorm": "database",
+         "repositories": "mappings",
+         "http": "container",
+         "migrations": "tools",
+         "modules": "components",
+         "implementations": "core",
+         "dtos": "typescript",
+         "fakes": "mock"
+     },
+
+     "material-icon-theme.files.associations": {
+         "ormconfig.json": "database",
+         "tsconfig.json": "tune"
+     }
+
+}

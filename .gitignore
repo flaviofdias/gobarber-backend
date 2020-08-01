@@ -8,3 +8,4 @@ tmp/*
 !tmp/.gitkeep
 
 z_token.txt
+yarn.lock
