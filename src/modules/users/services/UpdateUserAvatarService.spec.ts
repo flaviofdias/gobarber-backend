@@ -4,16 +4,22 @@ import FakeStorageProvider from '@shared/container/providers/StorageProvider/fak
 import FakeUsersRepository from '../repositories/fakes/FakeUsersRepository';
 import UpdateUserAvatarService from './UpdateUserAvatarService';
 
-describe('UpdateUserAvatar', () => {
-  it('Deve permitir a atualização do avatar do usuário', async () => {
-    const fakeUsersRepository = new FakeUsersRepository(); // Chamada do service
-    const fakeStorageProvider = new FakeStorageProvider(); // Chamada do service
+let fakeUsersRepository: FakeUsersRepository;
+let fakeStorageProvider: FakeStorageProvider;
+let updateUserAvatar: UpdateUserAvatarService;
 
-    const updateUserAvatar = new UpdateUserAvatarService(
+describe('UpdateUserAvatar', () => {
+  beforeEach(() => {
+    fakeUsersRepository = new FakeUsersRepository(); // Chamada do service
+    fakeStorageProvider = new FakeStorageProvider(); // Chamada do service
+
+    updateUserAvatar = new UpdateUserAvatarService(
       fakeUsersRepository,
       fakeStorageProvider,
     );
+  });
 
+  it('Deve permitir a atualização do avatar do usuário', async () => {
     const user = await fakeUsersRepository.create({
       name: 'John Doe',
       email: 'johndoe@example.com',
@@ -29,14 +35,6 @@ describe('UpdateUserAvatar', () => {
   });
 
   it('Não deve permitir a atualização do avatar se o usuário não existir', async () => {
-    const fakeUsersRepository = new FakeUsersRepository(); // Chamada do service
-    const fakeStorageProvider = new FakeStorageProvider(); // Chamada do service
-
-    const updateUserAvatar = new UpdateUserAvatarService(
-      fakeUsersRepository,
-      fakeStorageProvider,
-    );
-
     await expect(
       updateUserAvatar.execute({
         user_id: 'non-existing-user',
@@ -46,15 +44,7 @@ describe('UpdateUserAvatar', () => {
   });
 
   it('Deve permitir a exclusão do avatar anterior e atualizar por um novo avatardo usuário', async () => {
-    const fakeUsersRepository = new FakeUsersRepository(); // Chamada do service
-    const fakeStorageProvider = new FakeStorageProvider(); // Chamada do service
-
     const deleteFile = jest.spyOn(fakeStorageProvider, 'deleteFile');
-
-    const updateUserAvatar = new UpdateUserAvatarService(
-      fakeUsersRepository,
-      fakeStorageProvider,
-    );
 
     const user = await fakeUsersRepository.create({
       name: 'John Doe',
