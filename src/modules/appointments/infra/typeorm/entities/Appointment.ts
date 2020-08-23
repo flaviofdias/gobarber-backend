@@ -25,10 +25,18 @@ class Appointment {
   @Column()
   provider_id: string;
 
-  // Permite acessar todas informações do Usuário a partir da classe Appointments
+  // Permite acessar todas informações do Usuário Provider a partir da classe Appointments
   @ManyToOne(() => User)
   @JoinColumn({ name: 'provider_id' })
   provider: User;
+
+  @Column()
+  user_id: string;
+
+  // Permite acessar todas informações do Usuário a partir da classe Appointments
+  @ManyToOne(() => User)
+  @JoinColumn({ name: 'user_id' })
+  user: User;
 
   @Column('timestamp with time zone')
   date: Date;
