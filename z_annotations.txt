@@ -47,3 +47,7 @@
 
 # GERAR MD5
     echo -n 'seutexto' | md5sum
+
+
+MONGODB
+docker run --name mongodb -p 27017:27017 -d -t mongo

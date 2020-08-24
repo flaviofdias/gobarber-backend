@@ -1,25 +1,31 @@
 import AppError from '@shared/errors/AppError';
+
+import FakeNotificationsRepository from '@modules/notifications/repositories/fakes/FakeNotificationsRepository';
 import FakeAppointmentsRepository from '../repositories/fakes/FakeAppointmentsRepository';
 import CreateAppointmentService from './CreateAppointmentService';
 
 let fakeAppointmentsRepository: FakeAppointmentsRepository;
+let fakeNotificationsRepository: FakeNotificationsRepository;
 let createAppointment: CreateAppointmentService;
 
 describe('CreateAppointment', () => {
   beforeEach(() => {
     fakeAppointmentsRepository = new FakeAppointmentsRepository(); // Chamada do service
+    fakeNotificationsRepository = new FakeNotificationsRepository();
+
     createAppointment = new CreateAppointmentService(
       fakeAppointmentsRepository,
+      fakeNotificationsRepository,
     );
   });
 
   it('Deve permitir criar um novo agendamento', async () => {
     jest.spyOn(Date, 'now').mockImplementationOnce(() => {
-      return new Date(2020, 4, 10, 12).getTime();
+      return new Date(2021, 4, 10, 12).getTime();
     });
 
     const appointment = await createAppointment.execute({
-      date: new Date(2020, 4, 10, 13),
+      date: new Date(2021, 4, 10, 13),
       user_id: '111222',
       provider_id: '222333',
     });
@@ -29,7 +35,7 @@ describe('CreateAppointment', () => {
   });
 
   it('Não deve permitir criar 2 agendamentos ou mais, no mesmo horário', async () => {
-    const appointmentDate = new Date(2020, 7, 23, 11);
+    const appointmentDate = new Date(2021, 4, 10, 11);
 
     await createAppointment.execute({
       date: appointmentDate,
@@ -48,12 +54,12 @@ describe('CreateAppointment', () => {
 
   it('Não deve permitir criar agendamentos em datas / horários passados', async () => {
     jest.spyOn(Date, 'now').mockImplementationOnce(() => {
-      return new Date(2020, 4, 10, 12).getTime();
+      return new Date(2021, 4, 10, 15).getTime();
     });
 
     await expect(
       createAppointment.execute({
-        date: new Date(2020, 4, 10, 11),
+        date: new Date(2021, 4, 10, 8),
         user_id: '111222',
         provider_id: '222333',
       }),
@@ -62,12 +68,12 @@ describe('CreateAppointment', () => {
 
   it('Não deve permitir criar agendamentos para o Prestador, sendo ele mesmo o usuário', async () => {
     jest.spyOn(Date, 'now').mockImplementationOnce(() => {
-      return new Date(2020, 7, 23, 12).getTime();
+      return new Date(2021, 7, 23, 12).getTime();
     });
 
     await expect(
       createAppointment.execute({
-        date: new Date(2020, 7, 23, 13),
+        date: new Date(2021, 7, 23, 13),
         user_id: 'user-id',
         provider_id: 'user-id',
       }),
@@ -76,12 +82,12 @@ describe('CreateAppointment', () => {
 
   it('Não deve permitir criar agendamentos antes das 8h ou depois das 17h', async () => {
     jest.spyOn(Date, 'now').mockImplementationOnce(() => {
-      return new Date(2020, 7, 23, 12).getTime();
+      return new Date(2021, 7, 23, 12).getTime();
     });
 
     await expect(
       createAppointment.execute({
-        date: new Date(2020, 7, 24, 7),
+        date: new Date(2021, 7, 24, 7),
         user_id: 'user-id',
         provider_id: 'provider-id',
       }),
@@ -89,7 +95,7 @@ describe('CreateAppointment', () => {
 
     await expect(
       createAppointment.execute({
-        date: new Date(2020, 7, 24, 18),
+        date: new Date(2021, 7, 24, 18),
         user_id: 'user-id',
         provider_id: 'provider-id',
       }),

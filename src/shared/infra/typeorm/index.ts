@@ -1,5 +1,5 @@
-import { createConnection } from 'typeorm';
+import { createConnections } from 'typeorm';
 
 // Busca no pacote do pojeto, o arquivo ormconfig.json para carregar parâmetros de conexão
 
-createConnection();
+createConnections();
