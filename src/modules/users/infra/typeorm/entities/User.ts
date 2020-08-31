@@ -6,6 +6,8 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
+import { Exclude, Expose } from 'class-transformer';
+
 // Declaração nome tabela
 @Entity('users')
 class User {
@@ -19,6 +21,7 @@ class User {
   email: string;
 
   @Column()
+  @Exclude()
   password: string;
 
   @Column()
@@ -29,6 +32,14 @@ class User {
 
   @UpdateDateColumn()
   updated_at: Date;
+
+  @Expose({ name: 'avatar_url' })
+  getAvatarUrl(): string | null {
+    // String ou Nulo
+    return this.avatar
+      ? `${process.env.APP_API_URL}/files/${this.avatar}`
+      : null;
+  }
 }
 
 export default User;
