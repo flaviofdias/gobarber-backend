@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { parseISO } from 'date-fns';
+// import { parseISO } from 'date-fns';
 import { container } from 'tsyringe';
 
 import CreateAppointmentService from '@modules/appointments/services/CreateAppointmentService';
@@ -9,12 +9,13 @@ export default class AppointmentsController {
     const user_id = request.user.id;
     const { provider_id, date } = request.body;
 
-    const parsedDate = parseISO(date); // Transformação de dado - Converte String em Date
+    // Com uso do Joi, não necessita de conversão da Data
+    // const parsedDate = parseISO(date); // Transformação de dado - Converte String em Date
 
     const createAppointment = container.resolve(CreateAppointmentService);
 
     const appointment = await createAppointment.execute({
-      date: parsedDate,
+      date,
       provider_id,
       user_id,
     });
