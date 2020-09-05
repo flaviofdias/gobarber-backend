@@ -9,6 +9,6 @@ tmp/*
 
 .env
 ormconfig.json
-
+yarn.lock
 z_token.txt
 yarn.lock
