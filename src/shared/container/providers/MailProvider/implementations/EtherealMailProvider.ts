@@ -45,5 +45,13 @@ export default class EtherealMailProvider implements IMailProvider {
       subject,
       html: await this.mailTemplateProvider.parse(templateData),
     });
+
+    // Ambiente DEV - Logs Ethereal Mail
+
+    console.log(' ');
+    console.log('✍  Ambiente DEV - Logs Ethereal Mail');
+    console.log('Message sent: %s', message.messageId);
+    console.log('Preview URL: %s', nodemailer.getTestMessageUrl(message));
+    console.log(' ');
   }
 }
